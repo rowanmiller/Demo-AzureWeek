@@ -12,7 +12,12 @@ namespace AdventureWorks.Controllers
 {
     public class DepartmentsController : Controller
     {
-        private AdventureWorksContext db = new AdventureWorksContext();
+        private AdventureWorksContext db;
+
+        public DepartmentsController(AdventureWorksContext context)
+        {
+            db = context;
+        }
 
         // GET: /Departments/
         public ActionResult Index()
