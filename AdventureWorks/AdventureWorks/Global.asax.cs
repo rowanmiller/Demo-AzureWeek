@@ -26,6 +26,10 @@ namespace AdventureWorks
             builder.RegisterControllers(typeof(MvcApplication).Assembly);
             builder.Register<AdventureWorksContext>((_) => new AdventureWorksContext());
             builder.Register<IDbInterceptor>((_) => new NLogInterceptor());
+
+            builder.Register<Func<IDbExecutionStrategy>>((_) => () => new SqlAzureExecutionStrategy());
+            builder.Register<Func<TransactionHandler>>((_) => () => new CommitFailureHandler());
+
             var container = builder.Build();
 
             // Wire up MVC to use Autofac to resolve dependencies
