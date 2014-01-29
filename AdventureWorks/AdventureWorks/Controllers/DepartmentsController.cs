@@ -22,7 +22,7 @@ namespace AdventureWorks.Controllers
         // GET: /Departments/
         public ActionResult Index()
         {
-            return View(db.Departments.ToList());
+            return View(db.Departments.OrderBy(d => d.Name).ToList());
         }
 
         // GET: /Departments/Details/5
