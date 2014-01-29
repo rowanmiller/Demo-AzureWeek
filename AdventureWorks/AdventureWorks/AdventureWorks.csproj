@@ -175,6 +175,15 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201401291822263_Bootstrap.cs" />
+    <Compile Include="Migrations\201401291822263_Bootstrap.Designer.cs">
+      <DependentUpon>201401291822263_Bootstrap.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201401291823161_DepartmentRating.cs" />
+    <Compile Include="Migrations\201401291823161_DepartmentRating.Designer.cs">
+      <DependentUpon>201401291823161_DepartmentRating.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Address.cs" />
     <Compile Include="Models\AddressType.cs" />
@@ -315,6 +324,14 @@
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="packages.config" />
     <None Include="Project_Readme.html" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201401291822263_Bootstrap.resx">
+      <DependentUpon>201401291822263_Bootstrap.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201401291823161_DepartmentRating.resx">
+      <DependentUpon>201401291823161_DepartmentRating.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

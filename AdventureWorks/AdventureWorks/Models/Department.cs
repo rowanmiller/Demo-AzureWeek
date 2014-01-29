@@ -26,6 +26,8 @@ namespace AdventureWorks.Models
 
         public DateTime ModifiedDate { get; set; }
 
+        public int Rating { get; set; }
+
         public virtual ICollection<EmployeeDepartmentHistory> EmployeeDepartmentHistories { get; set; }
     }
 }
