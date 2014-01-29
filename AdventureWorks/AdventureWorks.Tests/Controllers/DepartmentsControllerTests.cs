@@ -1,11 +1,14 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using AdventureWorks;
+using AdventureWorks.Controllers;
+using AdventureWorks.Models;
+using AdventureWorks.Tests;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Web.Mvc;
-using AdventureWorks.Controllers;
-using AdventureWorks.Tests;
 
-namespace TR1.Tests.Controllers
+namespace AdventureWorks.Tests.Controllers
 {
     [TestClass]
     public class DepartmentsControllerTests
@@ -13,6 +16,12 @@ namespace TR1.Tests.Controllers
         [TestMethod]
         public void IndexSortedByName()
         {
+
+
+
+
+
+
 
         }
     }

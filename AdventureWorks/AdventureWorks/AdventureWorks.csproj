@@ -39,27 +39,18 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Autofac">
-      <HintPath>..\packages\Autofac.3.3.0\lib\net40\Autofac.dll</HintPath>
-    </Reference>
-    <Reference Include="Autofac.Integration.Mvc">
-      <HintPath>..\packages\Autofac.Mvc5.3.1.0\lib\net45\Autofac.Integration.Mvc.dll</HintPath>
-    </Reference>
-    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
+    <Reference Include="EntityFramework">
       <HintPath>..\packages\EntityFramework.6.1.0-alpha1\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
-    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
+    <Reference Include="EntityFramework.SqlServer">
       <HintPath>..\packages\EntityFramework.6.1.0-alpha1\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
-    <Reference Include="NLog">
-      <HintPath>..\packages\NLog.2.1.0\lib\net45\NLog.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -165,87 +156,19 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Address.cs" />
-    <Compile Include="AddressType.cs" />
-    <Compile Include="AdventureWorksContext.cs" />
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
-    <Compile Include="BillOfMaterial.cs" />
-    <Compile Include="BusinessEntity.cs" />
-    <Compile Include="BusinessEntityAddress.cs" />
-    <Compile Include="BusinessEntityContact.cs" />
-    <Compile Include="ContactType.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="CountryRegion.cs" />
-    <Compile Include="CountryRegionCurrency.cs" />
-    <Compile Include="CreditCard.cs" />
-    <Compile Include="Culture.cs" />
-    <Compile Include="Currency.cs" />
-    <Compile Include="CurrencyRate.cs" />
-    <Compile Include="Customer.cs" />
-    <Compile Include="Department.cs" />
-    <Compile Include="EmailAddress.cs" />
-    <Compile Include="Employee.cs" />
-    <Compile Include="EmployeeDepartmentHistory.cs" />
-    <Compile Include="EmployeePayHistory.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Illustration.cs" />
-    <Compile Include="JobCandidate.cs" />
-    <Compile Include="Location.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
-    <Compile Include="Password.cs" />
-    <Compile Include="Person.cs" />
-    <Compile Include="PersonCreditCard.cs" />
-    <Compile Include="PersonPhone.cs" />
-    <Compile Include="PhoneNumberType.cs" />
-    <Compile Include="Product.cs" />
-    <Compile Include="ProductCategory.cs" />
-    <Compile Include="ProductCostHistory.cs" />
-    <Compile Include="ProductDescription.cs" />
-    <Compile Include="ProductDocument.cs" />
-    <Compile Include="ProductInventory.cs" />
-    <Compile Include="ProductListPriceHistory.cs" />
-    <Compile Include="ProductModel.cs" />
-    <Compile Include="ProductModelIllustration.cs" />
-    <Compile Include="ProductModelProductDescriptionCulture.cs" />
-    <Compile Include="ProductPhoto.cs" />
-    <Compile Include="ProductProductPhoto.cs" />
-    <Compile Include="ProductReview.cs" />
-    <Compile Include="ProductSubcategory.cs" />
-    <Compile Include="ProductVendor.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="PurchaseOrderDetail.cs" />
-    <Compile Include="PurchaseOrderHeader.cs" />
-    <Compile Include="SalesOrderDetail.cs" />
-    <Compile Include="SalesOrderHeader.cs" />
-    <Compile Include="SalesOrderHeaderSalesReason.cs" />
-    <Compile Include="SalesPerson.cs" />
-    <Compile Include="SalesPersonQuotaHistory.cs" />
-    <Compile Include="SalesReason.cs" />
-    <Compile Include="SalesTaxRate.cs" />
-    <Compile Include="SalesTerritory.cs" />
-    <Compile Include="SalesTerritoryHistory.cs" />
-    <Compile Include="ScrapReason.cs" />
-    <Compile Include="Shift.cs" />
-    <Compile Include="ShipMethod.cs" />
-    <Compile Include="ShoppingCartItem.cs" />
-    <Compile Include="SpecialOffer.cs" />
-    <Compile Include="SpecialOfferProduct.cs" />
     <Compile Include="Startup.cs" />
-    <Compile Include="StateProvince.cs" />
-    <Compile Include="Store.cs" />
-    <Compile Include="TransactionHistory.cs" />
-    <Compile Include="TransactionHistoryArchive.cs" />
-    <Compile Include="UnitMeasure.cs" />
-    <Compile Include="Vendor.cs" />
-    <Compile Include="WorkOrder.cs" />
-    <Compile Include="WorkOrderRouting.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />
@@ -256,12 +179,6 @@
     <Content Include="Content\Site.css" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
-    <Content Include="NLog.config">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <None Include="NLog.xsd">
-      <SubType>Designer</SubType>
-    </None>
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />

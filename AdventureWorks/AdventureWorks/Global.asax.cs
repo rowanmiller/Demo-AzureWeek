@@ -1,6 +1,4 @@
 ﻿using AdventureWorks.Models;
-using Autofac;
-using Autofac.Integration.Mvc;
 using System;
 using System.Collections.Generic;
 using System.Data.Common;
