@@ -7,6 +7,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using AdventureWorks.Models;
+using System.Threading.Tasks;
 
 namespace AdventureWorks.Controllers
 {
@@ -20,9 +21,9 @@ namespace AdventureWorks.Controllers
         }
 
         // GET: /Departments/
-        public ActionResult Index()
+        public async Task<ActionResult> Index()
         {
-            return View(db.Departments.OrderBy(d => d.Name).ToList());
+            return View(await db.Departments.OrderBy(d => d.Name).ToListAsync());
         }
 
         // GET: /Departments/Details/5

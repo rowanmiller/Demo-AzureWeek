@@ -6,6 +6,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
 using System.Collections.Generic;
 using System.Data.Entity;
+using System.Data.Entity.Infrastructure;
 using System.Linq;
 using System.Web.Mvc;
 
@@ -26,8 +27,15 @@ namespace AdventureWorks.Tests.Controllers
             }.AsQueryable();
 
             var set = new Mock<DbSet<Department>>();
+
             // Wire up LINQ on mock set to use LINQ to Objects against test data
-            set.As<IQueryable<Department>>().Setup(m => m.Provider).Returns(data.Provider);
+            // Includes wire up to make async work (see http://msdn.com/data/dn314429#async for details)
+            set.As<IDbAsyncEnumerable<Department>>()
+                .Setup(m => m.GetAsyncEnumerator())
+                .Returns(new TestDbAsyncEnumerator<Department>(data.GetEnumerator()));
+            set.As<IQueryable<Department>>()
+                .Setup(m => m.Provider)
+                .Returns(new TestDbAsyncQueryProvider<Department>(data.Provider)); 
             set.As<IQueryable<Department>>().Setup(m => m.Expression).Returns(data.Expression);
             set.As<IQueryable<Department>>().Setup(m => m.ElementType).Returns(data.ElementType);
             set.As<IQueryable<Department>>().Setup(m => m.GetEnumerator()).Returns(data.GetEnumerator());
@@ -38,7 +46,7 @@ namespace AdventureWorks.Tests.Controllers
 
             // Create a controller based on mock context and invoke Index action
             var controller = new DepartmentsController(context.Object);
-            var result = controller.Index();
+            var result = controller.Index().Result;
 
             // Ensure we get a ViewResult back
             Assert.IsInstanceOfType(result, typeof(ViewResult));
